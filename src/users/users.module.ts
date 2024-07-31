@@ -20,7 +20,7 @@ import { UsersController } from './controller/users.controller';
     ]),
     PassportModule,
     JwtModule.register({
-      secret: process.env.JWT_SECRET,
+      secret: process.env.JWT_SECRET || "this is JWT_Secret",
       signOptions: { expiresIn: '1d' },
     }),
   ],
