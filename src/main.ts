@@ -13,7 +13,7 @@ async function bootstrap() {
   app.set('trust proxy', 1); // trust first proxy
   // app.enableCors(corsConfig());
   app.enableCors({
-    origin: ['http://localhost:3000', 'https://front-electro-store-kl77-eqxna4243-yassineazedines-projects.vercel.app'],
+    origin: [process.env.CLIENT_URL || "http://localhost:3000" ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
