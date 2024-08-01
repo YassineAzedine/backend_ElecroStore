@@ -11,9 +11,9 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.set('trust proxy', 1); // trust first proxy
-   app.enableCors(corsConfig());
+  //  app.enableCors(corsConfig());
    app.enableCors({
-    origin: ['https://front-electro-store-kl77-eqxna4243-yassineazedines-projects.vercel.app' ,'http://localhost:3000'],
+    origin: ['https://front-electro-store-kl77.vercel.app' ,'http://localhost:3000'],
     
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
