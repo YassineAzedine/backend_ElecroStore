@@ -12,11 +12,12 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.set('trust proxy', 1); // trust first proxy
    app.enableCors(corsConfig());
-  // app.enableCors({
-  //   origin: [process.env.CLIENT_URL || "http://localhost:3000" ],
-  //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  //   credentials: true,
-  // });
+   app.enableCors({
+    origin: ['https://front-electro-store-kl77-eqxna4243-yassineazedines-projects.vercel.app' ,'http://localhost:3000'],
+    
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
   app.use(session(sessionConfig(MongoDBStore)));
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   await app.listen(process.env.PORT || 4000);
