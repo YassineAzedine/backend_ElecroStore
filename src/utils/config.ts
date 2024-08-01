@@ -2,7 +2,7 @@ import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.int
 import { ConfigService } from '@nestjs/config';
 import { MongooseModuleOptions } from '@nestjs/mongoose';
 import { SessionOptions } from 'express-session';
-import * as dotenv from 'dotenv';
+
 export const connectDB = (
   configService: ConfigService
 ): MongooseModuleOptions => {
@@ -18,7 +18,7 @@ export const connectDB = (
 };
 
 export const corsConfig = (): CorsOptions => ({
-  origin: process.env.CLIENT_URL ||  process.env.CLIENT_URL ,
+  origin: process.env.CLIENT_URL || "http://localhost:3000",
   methods: 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
   credentials: true,
 });
